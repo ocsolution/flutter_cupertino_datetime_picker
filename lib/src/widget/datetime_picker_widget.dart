@@ -156,9 +156,11 @@ class _DateTimePickerWidgetState extends State<DateTimePickerWidget> {
   void initState() {
     super.initState();
 
-    if (widget.initDateTime != null) {
-      widget.onChange?.call(widget.initDateTime!, _calcSelectIndexList());
-    }
+    Future.microtask(() {
+      if (widget.initDateTime != null) {
+        widget.onChange?.call(widget.initDateTime!, _calcSelectIndexList());
+      }
+    });
   }
 
   @override
