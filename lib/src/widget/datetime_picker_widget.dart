@@ -153,6 +153,15 @@ class _DateTimePickerWidgetState extends State<DateTimePickerWidget> {
   }
 
   @override
+  void initState() {
+    super.initState();
+
+    if (widget.initDateTime != null) {
+      widget.onChange?.call(widget.initDateTime!, _calcSelectIndexList());
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Material(color: Colors.transparent, child: _renderPickerView(context)),
