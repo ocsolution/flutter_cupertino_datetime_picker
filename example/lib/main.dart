@@ -56,7 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 400,
               child: DateTimePickerWidget(
                 initDateTime: DateTime.now(),
-                maxDateTime: DateTime.now().add(Duration(days: 365)),
                 minDateTime: DateTime.now(),
                 dateFormat: "dd/MMM/yyyy HH:mm",
                 pickerTheme: const DateTimePickerTheme(

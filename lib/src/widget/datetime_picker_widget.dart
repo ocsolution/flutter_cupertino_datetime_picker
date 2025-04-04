@@ -26,8 +26,8 @@ class DateTimePickerWidget extends StatefulWidget {
     this.onChange,
     this.onConfirm,
     this.onMonthChangeStartWithFirstDate = false,
-    this.borderColor,
-    this.pickerHeight = 270,
+    this.backgroundColor,
+    this.pickerHeight = 240,
     this.textStyle,
   }) : super(key: key) {
     DateTime minTime = minDateTime ?? DateTime.parse(DATE_PICKER_MIN_DATETIME);
@@ -44,9 +44,9 @@ class DateTimePickerWidget extends StatefulWidget {
   final DateValueCallback? onChange, onConfirm;
   final int minuteDivider;
   final bool onMonthChangeStartWithFirstDate;
-  final Color? borderColor;
+  final Color? backgroundColor;
   final double pickerHeight;
-  TextStyle? textStyle;
+  final TextStyle? textStyle;
 
   @override
   State<StatefulWidget> createState() => _DateTimePickerWidgetState(
@@ -290,7 +290,7 @@ class _DateTimePickerWidgetState extends State<DateTimePickerWidget> {
         backgroundColor: widget.pickerTheme.backgroundColor,
         scrollController: scrollCtrl,
         selectionOverlay:
-            Container(color: (widget.borderColor ?? Color(0xffd9dce0)).withOpacity(.3)),
+            Container(color: (widget.backgroundColor ?? Color(0xffd9dce0)).withOpacity(.3)),
         itemExtent: widget.pickerTheme.itemHeight,
         onSelectedItemChanged: valueChanged,
         childCount: format.contains('m')
